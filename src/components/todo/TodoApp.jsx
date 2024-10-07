@@ -16,18 +16,18 @@ export default function TodoApp() {
         <div className="TodoApp">
             <AuthProvider>
                 <BrowserRouter>
-                <HeaderComponent/>
+                    <HeaderComponent/>
 
-                    <Routes>
-                        <Route path="/" element={ <LoginComponent/> }></Route>
-                        <Route path="/login" element={ <LoginComponent/> }></Route>
-                        <Route path="/welcome/:username" element={ <WelcomeComponent/> }></Route>
-                        <Route path="/todos" element={ <ListTodosComponent/> }></Route>
-                        <Route path="/logout" element={ <LogoutComponent/> }></Route>
-                        <Route path="*" element={ <ErrorComponent/> }></Route>
-                    </Routes>
+                        <Routes>
+                            <Route path="/" element={ <LoginComponent/> }></Route>
+                            <Route path="/login" element={ <LoginComponent/> }></Route>
+                            <Route path="/welcome/:username" element={ <WelcomeComponent/> }></Route>
+                            <Route path="/todos" element={ <ListTodosComponent/> }></Route>
+                            <Route path="/logout" element={ <LogoutComponent/> }></Route>
+                            <Route path="*" element={ <ErrorComponent/> }></Route>
+                        </Routes>
 
-                {/* <FooterComponent/> */}
+                    {/* <FooterComponent/> */}
                 </BrowserRouter>
             </AuthProvider>
         </div>
