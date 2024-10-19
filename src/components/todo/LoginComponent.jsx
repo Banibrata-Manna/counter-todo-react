@@ -4,7 +4,7 @@ import { useAuth } from "./security/AuthContext";
 
 function LoginComponent() {
 
-    const [username, setUsername] = useState("in28minutes");
+    const [username, setUsername] = useState("Banibrata");
 
     const [password, setPassword] = useState("");
 
@@ -30,7 +30,7 @@ function LoginComponent() {
         // console.log(username);
         // console.log(password);
 
-        if(username === 'BanibrataManna' && password === 'dummy') {
+        if(username === 'Banibrata' && password === 'dummy') {
             authContext.setAuthenticated(true);
             setShowSuccessMessage(true);
             setShowErrorMessage(false);
