@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { deleteTodoApi, retrieveAllTodosForUsernameApi } from "./api/TodoApiService";
+import { useAuth } from "./security/AuthContext";
 
 function ListTodosComponent() {
-
-    const today = new Date();
-
-    const targetDate = new Date(today.getFullYear()+12, today.getMonth(), today.getDay());
 
     const [todos, setTodos] = useState([]);
 
     const [message, setMessage] = useState(null);
+
+    const authContext = useAuth();
+
+    const username = authContext.username;
 
     // const todos = [{id : 1, description : 'Learn AWS Now!', done : false, targetDate : targetDate},
     //     {id : 2, description : 'Learn Full Stack Now!', done : false, targetDate : targetDate},
@@ -25,7 +26,7 @@ function ListTodosComponent() {
     );
 
     function refreshTodos () {
-        retrieveAllTodosForUsernameApi("Banibrata")
+        retrieveAllTodosForUsernameApi(username)
             .then(
                 (response) => {
                     setTodos(response.data);
@@ -35,7 +36,7 @@ function ListTodosComponent() {
     }
 
     function deleteTodo (id) {
-        deleteTodoApi("Banibrata", id)
+        deleteTodoApi(username, id)
             .then(
                 () => {
                     refreshTodos();

@@ -8,10 +8,8 @@ function HeaderComponent() {
     const authContext = useAuth();
     const isAuthenticated = authContext.isAuthenticated; 
 
-    console.log(isAuthenticated);
-
     function handleLogout() {
-        authContext.setAuthenticated(false);
+        authContext.logout();
     }
 
     return (
