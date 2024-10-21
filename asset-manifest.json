@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/counter-todo-react/static/css/main.ee9b9cc7.css",
-    "main.js": "/counter-todo-react/static/js/main.444e6163.js",
-    "static/js/453.ac79db8d.chunk.js": "/counter-todo-react/static/js/453.ac79db8d.chunk.js",
-    "index.html": "/counter-todo-react/index.html",
-    "main.ee9b9cc7.css.map": "/counter-todo-react/static/css/main.ee9b9cc7.css.map",
-    "main.444e6163.js.map": "/counter-todo-react/static/js/main.444e6163.js.map",
-    "453.ac79db8d.chunk.js.map": "/counter-todo-react/static/js/453.ac79db8d.chunk.js.map"
+    "main.css": "/counter-todo-react/login/static/css/main.ee9b9cc7.css",
+    "main.js": "/counter-todo-react/login/static/js/main.8b12a2cd.js",
+    "static/js/453.ac79db8d.chunk.js": "/counter-todo-react/login/static/js/453.ac79db8d.chunk.js",
+    "index.html": "/counter-todo-react/login/index.html",
+    "main.ee9b9cc7.css.map": "/counter-todo-react/login/static/css/main.ee9b9cc7.css.map",
+    "main.8b12a2cd.js.map": "/counter-todo-react/login/static/js/main.8b12a2cd.js.map",
+    "453.ac79db8d.chunk.js.map": "/counter-todo-react/login/static/js/453.ac79db8d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ee9b9cc7.css",
-    "static/js/main.444e6163.js"
+    "static/js/main.8b12a2cd.js"
   ]
 }
