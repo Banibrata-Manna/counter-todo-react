@@ -1,6 +1,4 @@
-{
-  "homepage": "https://Banibrata-Manna.github.io/counter-todo-react",
-  "name": "todo-app",
+{  "name": "todo-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
