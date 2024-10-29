@@ -17,4 +17,9 @@ export const retrieveHelloWorldBean
 // also can return using a arrow function.
 
 export const retrieveHelloWorldPathVariable
-    = (username) => apiClient.get(`/hello-world/path-variable/${username}`);
+    = (username) => apiClient.get(`/hello-world/path-variable/${username}`,
+        {
+            headers : {
+                Authorization : 'Basic QmFuaWJyYXRhOmR1bW15'
+            }
+        });
