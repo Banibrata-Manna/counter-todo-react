@@ -11,6 +11,8 @@ export default function AuthProvider({ children }) {
 
     const [username, setUsername] = useState(null);
 
+    const[token, setToken] = useState(null);
+
     // const valuesToBeShared = {number, isAuthenticated, setAuthenticated};
 
     // setInterval(
@@ -31,35 +33,38 @@ export default function AuthProvider({ children }) {
     //     }
     // }
 
-    function login(username, password) {
+     async function login(username, password) {
 
         const baToken = 'Basic ' + window.btoa(username + ":" + password);
 
-        executeBasicAuthenticationService(baToken)
-        .then(response => console.log(response))
-        .catch(error => console.log(error));
+        try {
+            const response = await executeBasicAuthenticationService(baToken);
 
-        setAuthenticated(false);
-
-        // if (username === "Banibrata" && password === "dummy"){
-        //     setAuthenticated(true);
-        //     setUsername("Banibrata");
-        //     return true;
-        // }
-        // else {
-        //     setAuthenticated(false);
-        //     setUsername(null);
-        //     return false;
-        // }
+            if (response.status == 200){
+                setAuthenticated(true);
+                setUsername("Banibrata");
+                setToken(baToken);
+                return true;
+            }
+            else {
+                logout();
+                return false;
+            }
+        } catch {
+            logout();
+            return false;
+        }
     }
 
     function logout() {
         setAuthenticated(false);
+        setToken(null);
+        setUsername(null);
     }
 
     return (
         <div>
-            <AuthContext.Provider value={{isAuthenticated, login, logout, username}}>
+            <AuthContext.Provider value={{isAuthenticated, login, logout, username, token}}>
                 {children}
             </AuthContext.Provider>
         </div>

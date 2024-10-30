@@ -22,11 +22,11 @@ function LoginComponent() {
         setPassword(event.target.value);
     }
 
-    function handleSunmit() {
+    async function handleSunmit() {
         // console.log(username);
         // console.log(password);
 
-        if(authContext.login(username, password)) {
+        if(await authContext.login(username, password)) {
             navigate(`/welcome/${username}`);
         } else {
             setShowErrorMessage(true);
