@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { executeBasicAuthenticationService } from "../api/HelloWorldApiService";
 
 export const AuthContext = createContext();
 
@@ -17,17 +18,39 @@ export default function AuthProvider({ children }) {
     //     ,5000
     // )
 
+    // function login(username, password) {
+    //     if (username === "Banibrata" && password === "dummy"){
+    //         setAuthenticated(true);
+    //         setUsername("Banibrata");
+    //         return true;
+    //     }
+    //     else {
+    //         setAuthenticated(false);
+    //         setUsername(null);
+    //         return false;
+    //     }
+    // }
+
     function login(username, password) {
-        if (username === "Banibrata" && password === "dummy"){
-            setAuthenticated(true);
-            setUsername("Banibrata");
-            return true;
-        }
-        else {
-            setAuthenticated(false);
-            setUsername(null);
-            return false;
-        }
+
+        const baToken = 'Basic ' + window.btoa(username + ":" + password);
+
+        executeBasicAuthenticationService(baToken)
+        .then(response => console.log(response))
+        .catch(error => console.log(error));
+
+        setAuthenticated(false);
+
+        // if (username === "Banibrata" && password === "dummy"){
+        //     setAuthenticated(true);
+        //     setUsername("Banibrata");
+        //     return true;
+        // }
+        // else {
+        //     setAuthenticated(false);
+        //     setUsername(null);
+        //     return false;
+        // }
     }
 
     function logout() {
