@@ -1,11 +1,14 @@
 import {Link, useParams} from 'react-router-dom';
 import { useState } from 'react';
 import { retrieveHelloWorldPathVariable } from './api/HelloWorldApiService';
+import { useAuth } from './security/AuthContext';
 
 function WelcomeComponent() {
     const {username} = useParams();
 
     const [message, setMessage] = useState(null);
+
+    const authContext = useAuth();
 
     function callHelloWorldRestApi() {
 
@@ -20,7 +23,7 @@ function WelcomeComponent() {
         //     .catch( (error) => errorResponse(error))
         //     .finally( () => console.log("Cleanup") ); // import first before use!
 
-        retrieveHelloWorldPathVariable('Santanu Manna')
+        retrieveHelloWorldPathVariable('Santanu Manna', authContext.token)
             .then( (response)=> successfullResponse(response) )
             .catch( (error) => errorResponse(error))
             .finally( () => console.log("Cleanup") );
