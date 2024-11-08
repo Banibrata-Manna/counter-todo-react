@@ -1,12 +1,14 @@
 import './App.css';
-import TodoApp from './components/todo/TodoApp';
+import PlacementCell from './components/placement-cell/PlacementCell';
+// import TodoApp from './components/todo/TodoApp';
 // import Counter from './components/counter/Counter';
 
 function App () {
   return (
     <div className='App'>
       {/* <PlayingWithProps property1="1" property2="2"/> */}
-      <TodoApp/>
+      {/* <TodoApp/> */}
+      <PlacementCell/>
     </div>
   )
 }
