@@ -6,7 +6,7 @@ import LoginComponent from "./LoginComponent";
 import HomeComponent from "./HomeComponent";
 import SideBar from "./SideBar";
 import { useState } from "react";
-
+import HeaderComponent from "./HeaderComponent";
 
 function AuthenticateRoute({children}) {
 
@@ -32,14 +32,14 @@ export default function PlacementCell() {
 
     return (
         <div className="PlacementCell">
-            <h1>This is Placement Cell App</h1>
             <AuthProvider>
                 <BrowserRouter>
-                <SideBar isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} />
+                    <HeaderComponent/>
+                    <SideBar isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} />
                     <Routes>
                         <Route path="/" element={ <LoginComponent/>}/>
                         <Route path="/login" element={ <LoginComponent/> }></Route>
-                        <Route path="/welcome/:username" element={ 
+                        <Route path="/welcome/:code" element={ 
                                 <AuthenticateRoute>
                                     <HomeComponent/>
                                 </AuthenticateRoute>

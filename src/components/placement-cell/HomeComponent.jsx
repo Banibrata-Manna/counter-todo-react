@@ -5,10 +5,12 @@ import { useAuth } from "./security/AuthContext";
 import { jwtDecode } from "jwt-decode";
 import { studentDetailsApiService } from "./api/UserApiService";
 import { useEffect, useState } from "react";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 export default function HomeComponent() {
 
-    const {username} = useParams();
+    const {code} = useParams();
+
+    const [name, setName] = useState();
 
     const authContext = useAuth();
 
@@ -23,16 +25,19 @@ export default function HomeComponent() {
     useEffect(
         () => {
             loadUserDetails()
-        }, [username, role, authContext]
+        }, [code, role, authContext]
     );
 
     async function loadUserDetails() {
         if(role == 'ROLE_STUDENT') {
             authContext.setRole('ROLE_STUDENT');
-            await studentDetailsApiService(username)
+            await studentDetailsApiService(code)
                 .then(
                     response => {console.log(response.data);
-                    setUserDetails(response.data)}
+                    setUserDetails(response.data);
+                    authContext.setUsername(response.data.name);
+                    setName(authContext.username);
+                    }
                 )
                 .catch(
                     error => console.log(error)
@@ -47,7 +52,6 @@ export default function HomeComponent() {
     return (
         <div className="HomeComponent">
             <div className="container">
-                
                 <div className="center-col">
                 {/* <h5>Welcome {userDetails?.name}, {role}</h5> */}
                     <span>List</span>

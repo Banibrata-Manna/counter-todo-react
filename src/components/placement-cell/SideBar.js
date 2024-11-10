@@ -10,6 +10,7 @@ const SideBar = props => {
         <div class="item">Profile</div>
         {(!authContext.role == 'ROLE_STUDENT') && <div class="item">Students</div>}
         <div class="item">Jobs</div>
+        {(authContext.role == 'ROLE_STUDENT') && <div class="item">Applied Jobs</div>}
         {(!authContext.role == 'ROLE_STUDENT') && <div class="item">HODs</div>}
       <button onClick={props.toggleSidebar} className="sidebar-toggle">{'<>'}</button>
     </div>
