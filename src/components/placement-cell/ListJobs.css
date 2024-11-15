@@ -1,0 +1,43 @@
+.ListJobComponent {
+  display: flex;
+  width: 100%;
+}
+
+.list-container, .job-component-container {
+  width: 50%; /* Each component takes 50% of the width */
+  padding: 10px;
+}
+
+.list-container {
+  border-right: 1px solid #ddd; /* Optional, for visual separation */
+  height: 100vh; /* Set height for scrolling */
+  overflow-y: auto; /* Allow vertical scrolling */
+}
+
+.JobCard {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    cursor: pointer;
+  }
+  
+  .job-title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .company {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .location {
+    font-size: 14px;
+    color: #888;
+  }

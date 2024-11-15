@@ -7,14 +7,6 @@
 .center-col {
     flex: 1;
     background: #aaa;
-    overflow-y: scroll;
-  }
-.right-col {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #e7e7e7;
   }
 .sidebar {
     position: absolute;

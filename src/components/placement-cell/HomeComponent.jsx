@@ -6,6 +6,8 @@ import { jwtDecode } from "jwt-decode";
 import { studentDetailsApiService } from "./api/UserApiService";
 import { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ListJobsComponent from './ListJobsComponent';
+import JobComponent from './JobComponent';
 export default function HomeComponent() {
 
     const {code} = useParams();
@@ -19,9 +21,7 @@ export default function HomeComponent() {
     const role = jwtDecode(token).scope;
 
     const [userDetails, setUserDetails] = useState(null);
-
-    const jobs = [...Array(100)].map((val, i) => `Item ${i}`);
-
+    
     useEffect(
         () => {
             loadUserDetails()
@@ -33,10 +33,11 @@ export default function HomeComponent() {
             authContext.setRole('ROLE_STUDENT');
             await studentDetailsApiService(code)
                 .then(
-                    response => {console.log(response.data);
-                    setUserDetails(response.data);
-                    authContext.setUsername(response.data.name);
-                    setName(authContext.username);
+                    (response) => {
+                        console.log(response.data);
+                        setUserDetails(response.data);
+                        authContext.setUsername(response.data.name);
+                        setName(authContext.username);
                     }
                 )
                 .catch(
@@ -54,14 +55,7 @@ export default function HomeComponent() {
             <div className="container">
                 <div className="center-col">
                 {/* <h5>Welcome {userDetails?.name}, {role}</h5> */}
-                    <span>List</span>
-                    <ul>
-                        {jobs.map((item, i) => (<li key={`item_${i}`}>{ item }</li>))}
-                    </ul>
-                </div>
-                
-                <div className="right-col">
-                    Right col
+                    <ListJobsComponent></ListJobsComponent>               
                 </div>
             </div>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
