@@ -23,7 +23,7 @@ export default function AuthProvider({ children }) {
             if (response.status == 200){
                 const jwtToken = 'Bearer ' + response.data.token;
                 setAuthenticated(true);
-                setUsername("Banibrata");
+                // setUsername("Banibrata");
                 setToken(jwtToken);
 
                 apiClient.interceptors.request.use(
