@@ -3,6 +3,7 @@ import "./PlacementCell.css"
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import AuthProvider, { useAuth } from "./security/AuthContext";
 import LoginComponent from "./LoginComponent";
+import LogoutComponent from "./LogoutComponent";
 import HomeComponent from "./HomeComponent";
 import SideBar from "./SideBar";
 import { useState } from "react";
@@ -42,6 +43,10 @@ export default function PlacementCell() {
                         <Route path="/welcome/:code" element={ 
                                 <AuthenticateRoute>
                                     <HomeComponent/>
+                                </AuthenticateRoute>
+                            }></Route>
+                        <Route path="/logout" element={ <AuthenticateRoute>
+                                    <LogoutComponent/>
                                 </AuthenticateRoute>
                             }></Route>
                     </Routes>
